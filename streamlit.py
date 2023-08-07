@@ -115,12 +115,10 @@ df_logement = load_logement_data()
 
 display_data_Compègne(dvf, df_chomage, df_logement)
 
-unique_departments = df_chomage['Departements'].unique().tolist()
 # Créer un formulaire
 with st.form(key='my_form'):
     model_option = st.selectbox("Choisissez un modèle",
                                 ["LinearRegression", "DecisionTreeRegressor", "RandomForestRegressor"])
-    dept_input = st.selectbox('Sélectionnez le département', [""] + unique_departments)
     nature_mutation_input = st.selectbox(label='Nature mutation', options=['Vente', 'Echange'])
     type_local_input = st.selectbox(label='Type de bien immobilier', options=['Appartement', 'Maison', 'Autres'])
     pieces_input = st.number_input(label='Nombre de pièces principales', min_value=1, max_value=10, value=5)
